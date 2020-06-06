@@ -1,0 +1,7 @@
+{
+  "name": "ednaflores",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
