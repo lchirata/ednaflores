@@ -1,9 +1,14 @@
 <ion-header>
+
   <ion-toolbar>
     <div class="toolbar">
-      <ion-title class="titulo">Produtos</ion-title>
-      <ion-icon (click)="resumoCompra()" class="carrinhoIcone" name="cart-outline"></ion-icon> 
+      <ion-title class="titulo">Suculentas</ion-title>
+      <ion-icon class="carrinhoIcone"  (click)="resumofavoritar()" name="heart-sharp"></ion-icon> 
+      <ion-badge *ngIf="favorito.numeroDeFavoritos()"color="primary">{{ favorito.numeroDeFavoritos()}}</ion-badge>
+
+      <ion-icon class="carrinhoIcone" (click)="resumoCompra()"  name="cart-outline"></ion-icon> 
       <ion-badge *ngIf="carrinho.numeroDeProdutos()"color="primary">{{ carrinho.numeroDeProdutos()}}</ion-badge>
+
     </div>
   </ion-toolbar>
 </ion-header>
@@ -22,16 +27,12 @@
       <img src="{{planta.imagem}}" />
       <ion-card-header class="itemHeader">
         <ion-card-subtitle class="nomeProduto">{{planta.nome}}</ion-card-subtitle>
-        <ion-card-title class="precoProduto">RS {{planta.preco}} </ion-card-title>
+        <ion-card-title class="precoProduto">RS {{planta.preco}} 
+        <ion-icon class="favoritos" (click)="adicionarNoFavorito(planta)"  color = "danger" name="heart-sharp"></ion-icon>
+      </ion-card-title>
       </ion-card-header>
-
-      <ion-card-content class="lojaProduto">
-        
-      </ion-card-content> 
-
       <ion-button class="botaocarrinho" expand="full" (click)="adicionarNoCarrinho(planta)">
-        <ion-icon name="cart-outline"></ion-icon>
-        comprar
+        <ion-icon name="cart-outline"></ion-icon>comprar
       </ion-button>
     </ion-card>
 

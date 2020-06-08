@@ -14,15 +14,17 @@ ion-content ion-toolbar {
   }
   
   .itemHeader {
-    padding: 5px 10px;
+    padding: 5px 15px;
   }
   
   .nomeProduto {
-   font-size: 10px;
+   font-size: 15px;
   }
   
   .precoProduto {
-    font-size: 11px;
+    font-size: 16px;
+    align-items: center;
+
   }
   
   .lojaProduto{
@@ -46,10 +48,30 @@ ion-content ion-toolbar {
   
   .carrinhoIcone{
     font-size: 28px;
+    padding: 10px;
+    background-size: 10px;
+  }
+
+  .carrinhoLabel{
+    font-size: 15px;
+    size: 0px;
+  }
+
+  .favoritos{
+    font-size: 28px;
+    padding: 0px
   }
   
   .titulo{
-    padding: 0px;
+    padding: 5px;
   }
+
+.numerofavoriro{
+  margin : 0px;
+  padding: 5px ;
+  font-size: 12px;
+  background-color:blue($color: #000000);
+}
+
   
   

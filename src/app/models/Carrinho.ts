@@ -50,7 +50,7 @@ export class Carrinho {
             const quantidade = planta.quantidade;
             total += (preco * quantidade);
         }
-        return total.toFixed(4);
+        return total.toFixed(2);
     }
 }
 

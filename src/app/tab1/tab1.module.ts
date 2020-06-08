@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import {CarrinhoComponent} from './carrinho/carrinho.component';
+import { FavoritoComponent } from './favorito/favorito.component'
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
 
@@ -17,6 +19,6 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     Tab1PageRoutingModule,
     RouterModule.forChild([{ path: '', component: Tab1Page }])
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page, CarrinhoComponent, FavoritoComponent]
 })
 export class Tab1PageModule {}
