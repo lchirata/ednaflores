@@ -1,17 +1,41 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <div class="toolbar">
+      <ion-title class="titulo">Produtos</ion-title>
+      <ion-icon (click)="resumoCompra()" class="carrinhoIcone" name="cart-outline"></ion-icon> 
+      <ion-badge *ngIf="carrinho.numeroDeProdutos()"color="primary">{{ carrinho.numeroDeProdutos()}}</ion-badge>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-searchbar (ionChange)="teclaDigita($event)"></ion-searchbar>
+
+  <div class="vitrine">
+    <ion-card class="itemCompra" *ngFor="let planta of plantas">
+      <img src="{{planta.imagem}}" />
+      <ion-card-header class="itemHeader">
+        <ion-card-subtitle class="nomeProduto">{{planta.nome}}</ion-card-subtitle>
+        <ion-card-title class="precoProduto">RS {{planta.preco}} </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="lojaProduto">
+        
+      </ion-card-content> 
+
+      <ion-button class="botaocarrinho" expand="full" (click)="adicionarNoCarrinho(planta)">
+        <ion-icon name="cart-outline"></ion-icon>
+        comprar
+      </ion-button>
+    </ion-card>
+
+  </div>
+
+
 </ion-content>
