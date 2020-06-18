@@ -6,6 +6,12 @@ ion-content ion-toolbar {
     width: 30%;
     margin: 5px;
   }
+
+  img{
+    height:100px;
+    width:100%;
+    }
+
   
   .vitrine{
     display: flex;
@@ -23,8 +29,6 @@ ion-content ion-toolbar {
   
   .precoProduto {
     font-size: 16px;
-    align-items: center;
-
   }
   
   .lojaProduto{
@@ -59,7 +63,7 @@ ion-content ion-toolbar {
 
   .favoritos{
     font-size: 28px;
-    padding: 0px
+    padding: 0px;
   }
   
   .titulo{

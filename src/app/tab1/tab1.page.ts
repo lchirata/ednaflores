@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Planta } from '../models/Planta';
-import { PlantasService } from '../services/plantas.service';
 import { Carrinho } from '../models/Carrinho';
+import { Favorito } from '../models/Favotito';
 import { ModalController } from '@ionic/angular';
+import { PlantasService } from '../services/plantas.service';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { FavoritoComponent } from './favorito/favorito.component';
-import { Favorito } from '../models/Favotito';
+
 
 @Component({
   selector: 'app-tab1',
@@ -15,13 +16,14 @@ import { Favorito } from '../models/Favotito';
 export class Tab1Page implements OnInit {
 
   plantas = new Array<Planta>();
-  carrinho = new Carrinho();
+  carrinho = Carrinho.getInstance();
   favorito = new Favorito();
 
   constructor(
 
     public plantasService: PlantasService,
-    public modalController: ModalController
+    public modalController: ModalController,
+    public modalFavorito: ModalController,
 
   ) { }
 
@@ -32,8 +34,8 @@ export class Tab1Page implements OnInit {
     })
   }
 
-  adicionarNoCarrinho(planta: Planta) {
-    this.carrinho.adicionarNoCarrinho(planta);
+  adicionarNoCarrinho(planta: Planta, buque: Planta) {
+    this.carrinho.adicionarNoCarrinho(planta, buque);
   }
 
   teclaDigita(event: any) {
@@ -51,19 +53,20 @@ export class Tab1Page implements OnInit {
     return await modal.present();
   }
 
-  async resumofavoritar() {
-    const modalfavorito  = await this.modalController.create({
-      component: FavoritoComponent,
-      cssClass: 'modal',
-      componentProps: {
-        carrinho: this.carrinho,
-      }
-    });
-    return await modalfavorito.present();
-  }
-
   adicionarNoFavorito(planta: Planta) {
     this.favorito.adicionarNoFavorito(planta);
   }
+
+  async resumoFavorito() {
+    const modalfav = await this.modalFavorito.create({
+    component: FavoritoComponent,
+    cssClass: 'modal' ,
+    componentProps: {
+      favorito: this.favorito,
+    }
+    });
+    return await modalfav.present();
+  }
+
 }
 

@@ -1,4 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PlantasService } from '../services/plantas.service';
+import { Buque } from '../models/Buque';
+import { Carrinho } from '../models/Carrinho';
+import { Planta } from '../models/Planta';
+import { ModalController } from '@ionic/angular';
+import { CarrinhoComponent } from '../tab1/carrinho/carrinho.component';
+import { FavoritoComponent } from '../tab1/favorito/favorito.component';
+
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +15,38 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  buques = new Array<Buque>();
+  plantas = new Array<Planta>();
+  carrinho = Carrinho.getInstance();
+
+  constructor(
+    public plantasService: PlantasService,
+    public modalController: ModalController,
+    public modalFavorito: ModalController,
+  ) {}
+
+  ngOnInit() {
+    this.plantasService.listarBuques().subscribe(resultado => {
+      this.buques = resultado;
+    })
+  }
+
+  adicionarNoCarrinho(planta: Planta, buque: Buque) {
+    console.log("adicionando no carrinho")
+    this.carrinho.adicionarNoCarrinho(planta, buque);
+  }
+  
+  
+  async resumoCompra() {
+    const modal = await this.modalController.create({
+      component: CarrinhoComponent,
+      cssClass: 'modal',
+      componentProps: {
+        carrinho: this.carrinho,
+      }
+    });
+    return await modal.present();
+  }
+
 
 }

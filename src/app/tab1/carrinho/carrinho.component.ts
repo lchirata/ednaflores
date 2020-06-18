@@ -47,7 +47,7 @@ export class CarrinhoComponent implements OnInit {
     
     }
 
-    async presentToast() {
+  async presentToast() {
       const toast = await this.toastController.create({
       message: 'Compra efetuada!',
       duration: 2000

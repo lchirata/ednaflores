@@ -1,36 +1,60 @@
 import { Planta } from './Planta';
+import { Carrinho } from './Carrinho';
+
 export class Favorito {
 
-    private favorito: Array<Planta>;
+    private plantas: Array<Planta>;
+    private carrinho: Carrinho;
+
     constructor() {
 
-        this.favorito = Array<Planta>();
+        this.plantas = Array<Planta>();
+        this.carrinho = new Carrinho();
     }
 
     adicionarNoFavorito(planta: Planta) {
-        const plantaExiste =  this.favorito.find(item => item.id === planta.id);
+        const plantaExiste =  this.plantas.find(item => item.id === planta.id);
 
         if (plantaExiste){
             plantaExiste.quantidade = 1;
             console.log(plantaExiste.quantidade);
         } else {
             planta.quantidade = 1;
-            this.favorito.push(planta);  
+            this.plantas.push(planta);  
         }
     }
 
     numeroDeFavoritos() {
-        return this.favorito.length;
+        return this.plantas.length;
     }
 
     excluirDoFavorito(planta: Planta) {
-        const produtoExiste = this.favorito.find(item => item.id === planta.id)
+        const produtoExiste = this.plantas.find(item => item.id === planta.id)
 
         if (produtoExiste.quantidade > 1){
             produtoExiste.quantidade -= 1;
         }else{
-            this.favorito = this.favorito.filter(item => item.id != planta.id);
+            this.plantas = this.plantas.filter(item => item.id != planta.id);
         }   
+    }
+
+  
+    resumoFavorito() {
+        return this.plantas;
+    }
+
+    testes(planta: Planta) {
+
+        console.log("adiciona carrinho");
+    //     const plantaExiste =  this.plantas.find(item => item.id === planta.id);
+
+    //     if (plantaExiste){
+    //         plantaExiste.quantidade += 1;
+    //         console.log(plantaExiste.quantidade);
+    //     } else {
+    //         planta.quantidade = 1;
+    //         this.plantas.push(planta);  
+    //   }
     }
 
 }

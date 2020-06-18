@@ -1,14 +1,11 @@
 <ion-header>
-
   <ion-toolbar>
     <div class="toolbar">
       <ion-title class="titulo">Suculentas</ion-title>
-      <ion-icon class="carrinhoIcone"  (click)="resumofavoritar()" name="heart-sharp"></ion-icon> 
+      <ion-icon class="carrinhoIcone"  (click)="resumoFavorito()" name="heart-sharp"></ion-icon> 
       <ion-badge *ngIf="favorito.numeroDeFavoritos()"color="primary">{{ favorito.numeroDeFavoritos()}}</ion-badge>
-
       <ion-icon class="carrinhoIcone" (click)="resumoCompra()"  name="cart-outline"></ion-icon> 
       <ion-badge *ngIf="carrinho.numeroDeProdutos()"color="primary">{{ carrinho.numeroDeProdutos()}}</ion-badge>
-
     </div>
   </ion-toolbar>
 </ion-header>

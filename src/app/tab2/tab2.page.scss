@@ -1,0 +1,81 @@
+ion-content ion-toolbar {
+    --background: translucent;
+  }
+  
+  .itemCompra {
+    width: 30%;
+    margin: 5px;
+  }
+
+  img{
+    height:100px;
+    width:100%;
+    }
+
+  
+  .vitrine{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .itemHeader {
+    padding: 5px 15px;
+  }
+  
+  .nomeProduto {
+   font-size: 15px;
+  }
+  
+  .precoProduto {
+    font-size: 16px;
+  }
+  
+  .lojaProduto{
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 30px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+  }
+  .botaocarrinho{
+    font-size: 12px;
+    text-transform: lowercase;
+    justify-content: space-between;
+    background-color: #6810dc99!important;
+  }
+  
+  .toolbar {
+   display: flex;
+   padding: 0px 20px!important; 
+  }
+  
+  .carrinhoIcone{
+    font-size: 28px;
+    padding: 10px;
+    background-size: 10px;
+  }
+
+  .carrinhoLabel{
+    font-size: 15px;
+    size: 0px;
+  }
+
+  .favoritos{
+    font-size: 28px;
+    padding: 0px;
+  }
+  
+  .titulo{
+    padding: 5px;
+  }
+
+.numerofavoriro{
+  margin : 0px;
+  padding: 5px ;
+  font-size: 12px;
+  background-color:blue($color: #000000);
+}
+
+  
+  

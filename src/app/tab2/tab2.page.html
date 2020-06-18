@@ -1,10 +1,14 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <div class="toolbar">
+      <ion-title class="titulo">Buques</ion-title>
+      <ion-icon class="carrinhoIcone"  (click)="resumoFavorito()" name="heart-sharp"></ion-icon> 
+      <!-- <ion-badge *ngIf="favorito.numeroDeFavoritos()"color="primary">{{ favorito.numeroDeFavoritos()}}</ion-badge>  -->
+      <ion-icon class="carrinhoIcone" (click)="resumoCompra()"  name="cart-outline"></ion-icon> 
+      <ion-badge *ngIf="carrinho.numeroDeProdutos()"color="primary">{{ carrinho.numeroDeProdutos()}}</ion-badge>
+    </div>
   </ion-toolbar>
-</ion-header>
+</ion-header> 
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -12,6 +16,20 @@
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
 </ion-content>
+
+<ion-searchbar (ionChange)="teclaDigita($event)"></ion-searchbar>
+
+<div class="vitrine">
+  <ion-card class="itemCompra" *ngFor="let buque of buques" >
+    <img src="{{buque.imagem}}" />
+   <ion-card-header class="itemHeader">
+      <ion-card-subtitle class="nomeProduto">{{buque.nome}}</ion-card-subtitle>
+      <ion-card-title class="precoProduto">RS {{buque.preco}}
+      <ion-icon class="favoritos" color = "danger" name="heart-sharp"></ion-icon>
+    </ion-card-title>
+    </ion-card-header>
+    <ion-button class="botaocarrinho" expand="full"  (click)="adicionarNoCarrinho(buque)">
+      <ion-icon name="cart-outline"></ion-icon>comprar
+    </ion-button>
+  </ion-card>

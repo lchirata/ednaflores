@@ -14,6 +14,10 @@ export class PlantasService {
     return this.http.get('http://localhost:3001/plantas');
   }
 
+  listarBuques(): Observable<any> {
+    return this.http.get('http://localhost:3001/buques');
+  }
+
   // comprar(plantas: Array<Planta>): Observable<any> {
   //   return new Observable();
   //   }
