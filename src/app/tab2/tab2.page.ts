@@ -6,6 +6,7 @@ import { Planta } from '../models/Planta';
 import { ModalController } from '@ionic/angular';
 import { CarrinhoComponent } from '../tab1/carrinho/carrinho.component';
 import { FavoritoComponent } from '../tab1/favorito/favorito.component';
+import { ProdutoComponent } from '../tab1/produto/produto.component';
 
 
 @Component({
@@ -43,6 +44,19 @@ export class Tab2Page {
       cssClass: 'modal',
       componentProps: {
         carrinho: this.carrinho,
+      }
+    });
+    return await modal.present();
+  }
+
+  async detalheProduto() {
+
+    console.log("vitrine");
+    const modal = await this.modalController.create({
+      component: ProdutoComponent,
+      cssClass: 'modal',
+      componentProps: {
+        planta: this.plantas,
       }
     });
     return await modal.present();

@@ -76,7 +76,6 @@ export class Carrinho {
         total = totalp + totalb;
 
         return total.toFixed(2);
-    }
-
+    }  
 }
 

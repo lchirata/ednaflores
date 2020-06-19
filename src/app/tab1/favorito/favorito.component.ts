@@ -38,7 +38,6 @@ export class FavoritoComponent implements OnInit {
   }
 
   teste(plantas: Planta){
-    //console.log("teste");
     this.favorito.testes(plantas);
   }  
 }

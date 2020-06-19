@@ -22,7 +22,7 @@
 
 <div class="vitrine">
   <ion-card class="itemCompra" *ngFor="let buque of buques" >
-    <img src="{{buque.imagem}}" />
+    <img src="{{buque.imagem}}" (click)="detalheProduto()" />
    <ion-card-header class="itemHeader">
       <ion-card-subtitle class="nomeProduto">{{buque.nome}}</ion-card-subtitle>
       <ion-card-title class="precoProduto">RS {{buque.preco}}
@@ -33,3 +33,4 @@
       <ion-icon name="cart-outline"></ion-icon>comprar
     </ion-button>
   </ion-card>
+</div>

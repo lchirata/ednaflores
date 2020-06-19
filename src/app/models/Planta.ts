@@ -6,5 +6,6 @@ export class Planta {
     preco: number;
     imagem: String;
     quantidade: number;
-}
 
+
+}

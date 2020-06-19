@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Planta } from '../models/Planta';
 import { Carrinho } from '../models/Carrinho';
 import { Favorito } from '../models/Favotito';
+import { Detalhe } from '../models/Detalhe';
 import { ModalController } from '@ionic/angular';
 import { PlantasService } from '../services/plantas.service';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { FavoritoComponent } from './favorito/favorito.component';
+import { ProdutoComponent } from './produto/produto.component';
 
 
 @Component({
@@ -18,6 +20,7 @@ export class Tab1Page implements OnInit {
   plantas = new Array<Planta>();
   carrinho = Carrinho.getInstance();
   favorito = new Favorito();
+  detalhe = new Detalhe();
 
   constructor(
 
@@ -59,14 +62,25 @@ export class Tab1Page implements OnInit {
 
   async resumoFavorito() {
     const modalfav = await this.modalFavorito.create({
-    component: FavoritoComponent,
-    cssClass: 'modal' ,
-    componentProps: {
-      favorito: this.favorito,
-    }
+      component: FavoritoComponent,
+      cssClass: 'modal',
+      componentProps: {
+        favorito: this.favorito,
+      }
     });
     return await modalfav.present();
   }
 
-}
+  async detalheProduto(planta: Planta) {
 
+    console.log(this.detalhe.adicionarNoDetalhe);
+    const modal = await this.modalController.create({
+      component: ProdutoComponent,
+      cssClass: 'modal',
+      componentProps: {
+        produto: this.plantas,
+      }
+    });
+    return await modal.present();
+  }
+}
